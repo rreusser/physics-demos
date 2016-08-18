@@ -1,0 +1,21 @@
+{
+  "title": "Teaching Feynman&#39;s sum-over-path quantum theory",
+  "appName": "feynman-sum-over-path-quantum-theory",
+  "camelizedAppName": "feynmanSumOverPathQuantumTheory",
+  "description": "An interactive implementation of the paper, &#34;Teaching Feynman&#39;s sum-over-path quantum theory&#34;",
+  "ghOrgOrUser": "rreusser",
+  "metaTags": {
+    "site": "Teaching Feynman&#39;s sum-over-path quantum theory",
+    "title": "Teaching Feynman&#39;s sum-over-path quantum theory",
+    "description": "An interactive implementation of the paper, &#34;Teaching Feynman&#39;s sum-over-path quantum theory&#34;",
+    "twitter:card": "summary_large_image",
+    "twitter:title": "Teaching Feynman&#39;s sum-over-path quantum theory",
+    "twitter:site": "@your_twitter_handle",
+    "twitter:description": "An interactive implementation of the paper, &#34;Teaching Feynman&#39;s sum-over-path quantum theory&#34;",
+    "twitter:image": "images/screenshot.png",
+    "og:image": "images/screenshot.png",
+    "og:site_name": "Teaching Feynman&#39;s sum-over-path quantum theory",
+    "og:title": "Teaching Feynman&#39;s sum-over-path quantum theory",
+    "og:description": "An interactive implementation of the paper, &#34;Teaching Feynman&#39;s sum-over-path quantum theory&#34;"
+  }
+}

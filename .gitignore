@@ -1,0 +1,5 @@
+dist
+*.log
+lib-cov
+node_modules
+aws-credentials.json
