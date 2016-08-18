@@ -1,5 +1,6 @@
 'use strict';
 
+var path = require('path');
 var wrapHtml = require('./wrap-html');
 var resolve = require('./content-resolver');
 var toStr = require('stream-to-string');
@@ -10,10 +11,10 @@ var metadata = require('../../metadata');
 
 module.exports = build;
 
-function build (htmlpath, opts, cb) {
+function build (basePath, htmlPath, opts, cb) {
   opts = opts || {};
 
-  resolve(htmlpath, {defaultCss: opts.defaultCss || 'index.css'}, function (err, streams, meta) {
+  resolve(basePath, htmlPath, {defaultCss: opts.defaultCss || 'index.css'}, function (err, streams, meta) {
     if (err) {
       return cb(err);
     }
@@ -47,10 +48,10 @@ function build (htmlpath, opts, cb) {
         //var css = content.css ? str(content.css) : null;
 
         var out = wrapHtml(html)({
-          entry: opts.entry || 'bundle.js',
+          entry: opts.entry || path.join(meta.pathToRoot, 'bundle.js'),
           title: opts.title || meta.title,
           js: js,
-          css: meta.csspath
+          css: meta.cssRel
         })
 
         if (opts.codepen) {

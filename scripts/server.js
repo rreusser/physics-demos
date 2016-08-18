@@ -8,6 +8,7 @@ var resolve = require('./util/content-resolver');
 var toStr = require('stream-to-string');
 var metaTagInjector = require('./util/meta-tag-injector');
 var metadata = require('../metadata');
+var path = require('path');
 
 var app = budo('src/static.js', {
   watchGlob: 'src/**/*.{html,css,js}',
@@ -22,26 +23,27 @@ var app = budo('src/static.js', {
     var pathname = url.parse(req.url).pathname
 
     // Wrap index.html in the layout, if present:
-    if (pathname === '/') {
-      pathname = '/index.html';
+    if (pathname.match(/\/$/) || !path.basename(pathname).match(/\./)) {
+      pathname = path.join(pathname, 'index.html');
     }
 
-    if (pathname.match(/\.html/)) {
+    if (pathname.match(/\.html$/)) {
       try{
-      var streams = resolve(__dirname + '/../src' + pathname, {
-        defaultCss: 'index.css',
-      }, function (err, streams, data) {
-        res.statusCode = 200;
+        var streams = resolve(path.join(__dirname, '/../src'), pathname, {
+          defaultCss: 'index.css',
+        }, function (err, streams, data) {
+          res.statusCode = 200;
 
-        wrapHtml(streams.html)({
-          title: 'Page',
-          js: streams.js,
-          css: data.cssrel
-        })
-          .pipe(lr())
-          .pipe(metaTagInjector(metadata.metaTags))
-          .pipe(res);
-      });
+          wrapHtml(streams.html)({
+            entry: data.staticRel,
+            title: 'Page',
+            js: streams.js,
+            css: data.cssRel
+          })
+            .pipe(lr())
+            .pipe(metaTagInjector(metadata.metaTags))
+            .pipe(res);
+        });
       } catch(e) {
         console.error(e.stack);
       }

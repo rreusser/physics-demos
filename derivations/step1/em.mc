@@ -8,10 +8,10 @@ E0x: diff(E0, x);
 E1x: diff(E1, x);
 E2x: diff(E2, x);
 
-cond1: expand((subst(0, x, E0) - subst(0, x, E1)) * exp(%i * w * t));
-cond2: expand((subst(l, x, E1) - subst(l, x, E2)) * exp(%i * w * t));
-cond3: expand((subst(0, x, E0x) - subst(0, x, E1x)) * exp(%i * w * t));
-cond4: expand((subst(l, x, E1x) - subst(l, x, E2x)) * exp(%i * w * t));
+cond1: expand((subst(x1, x, E0) - subst(x1, x, E1)) * exp(%i * w * t));
+cond2: expand((subst(x2, x, E1) - subst(x2, x, E2)) * exp(%i * w * t));
+cond3: expand((subst(x1, x, E0x) - subst(x1, x, E1x)) * exp(%i * w * t));
+cond4: expand((subst(x2, x, E1x) - subst(x2, x, E2x)) * exp(%i * w * t));
 
 A: matrix(
   [coeff(cond1, E01), coeff(cond1, E10), coeff(cond1, E11), coeff(cond1, E20)],

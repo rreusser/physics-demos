@@ -1,21 +1,21 @@
 {
-  "title": "Teaching Feynman&#39;s sum-over-path quantum theory",
-  "appName": "feynman-sum-over-path-quantum-theory",
-  "camelizedAppName": "feynmanSumOverPathQuantumTheory",
-  "description": "An interactive implementation of the paper, &#34;Teaching Feynman&#39;s sum-over-path quantum theory&#34;",
+  "title": "Physics demos",
+  "appName": "physics-demos",
+  "camelizedAppName": "fresnelReflection",
+  "description": "Fresnel reflection in one dimension for either a pane or volume of glass",
   "ghOrgOrUser": "rreusser",
   "metaTags": {
-    "site": "Teaching Feynman&#39;s sum-over-path quantum theory",
-    "title": "Teaching Feynman&#39;s sum-over-path quantum theory",
-    "description": "An interactive implementation of the paper, &#34;Teaching Feynman&#39;s sum-over-path quantum theory&#34;",
+    "site": "http://rickyreusser.com",
+    "title": "Physics demos",
+    "description": "Fresnel reflection in one dimension for either a pane or volume of glass",
     "twitter:card": "summary_large_image",
-    "twitter:title": "Teaching Feynman&#39;s sum-over-path quantum theory",
-    "twitter:site": "@your_twitter_handle",
-    "twitter:description": "An interactive implementation of the paper, &#34;Teaching Feynman&#39;s sum-over-path quantum theory&#34;",
-    "twitter:image": "images/screenshot.png",
-    "og:image": "images/screenshot.png",
-    "og:site_name": "Teaching Feynman&#39;s sum-over-path quantum theory",
-    "og:title": "Teaching Feynman&#39;s sum-over-path quantum theory",
-    "og:description": "An interactive implementation of the paper, &#34;Teaching Feynman&#39;s sum-over-path quantum theory&#34;"
+    "twitter:title": "Physics demos",
+    "twitter:site": "@rickyreusser",
+    "twitter:description": "Fresnel reflection in one dimension for either a pane or volume of glass",
+    "twitter:image": "http://demos.rickyreusser.com/physics-demos/fresnel-reflection/images/screenshot.jpg",
+    "og:image": "http://demos.rickyreusser.com/physics-demos/fresnel-reflection/images/screenshot.jpg",
+    "og:site_name": "http://rickyreusser.com",
+    "og:title": "Physics demos",
+    "og:description": "Fresnel reflection in one dimension for either a pane or volume of glass"
   }
 }

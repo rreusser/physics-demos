@@ -1,6 +1,6 @@
-# feynman-sum-over-path-quantum-theory
+# physics-demos
 
-> An interactive implementation of the paper, &#34;Teaching Feynman&#39;s sum-over-path quantum theory&#34;
+> A single collection of physics demos
 
 [![experimental][stability-experimental]][stability-url]
 <!--[![Build Status][travis-image]][travis-url]-->
@@ -11,6 +11,8 @@
 
 ## Introduction
 
+- [Fresnel Reflection in 1D](http://demos.rickyreusser.com/physics-demos/fresnel-reflection/)
+
 ## License
 
 &copy; 2016 Ricky Reusser. MIT License.
@@ -20,14 +22,14 @@
 
 <!-- BADGES -->
 
-[travis-image]: https://travis-ci.org/rreusser/feynman-sum-over-path-quantum-theory.svg?branch=master
-[travis-url]: https://travis-ci.org//feynman-sum-over-path-quantum-theory
+[travis-image]: https://travis-ci.org/rreusser/physics-demos.svg?branch=master
+[travis-url]: https://travis-ci.org//physics-demos
 
-[npm-image]: https://badge.fury.io/js/feynman-sum-over-path-quantum-theory.svg
-[npm-url]: https://npmjs.org/package/feynman-sum-over-path-quantum-theory
+[npm-image]: https://badge.fury.io/js/physics-demos.svg
+[npm-url]: https://npmjs.org/package/physics-demos
 
-[david-dm-image]: https://david-dm.org/rreusser/feynman-sum-over-path-quantum-theory.svg?theme=shields.io
-[david-dm-url]: https://david-dm.org/rreusser/feynman-sum-over-path-quantum-theory
+[david-dm-image]: https://david-dm.org/rreusser/physics-demos.svg?theme=shields.io
+[david-dm-url]: https://david-dm.org/rreusser/physics-demos
 
 [semistandard-image]: https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg?style=flat-square
 [semistandard-url]: https://github.com/Flet/semistandard

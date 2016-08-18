@@ -9,7 +9,7 @@ var argv = require('minimist')(process.argv.slice(2));
 var meta = require('../metadata');
 var buildDist = require('./util/build-dist');
 var xtend = require('xtend');
-
+var path = require('path');
 
 var config = xtend(awsConfig({
   appName: meta.appName,
@@ -17,8 +17,9 @@ var config = xtend(awsConfig({
   bucket: awsCreds.bucket,
   webHost: awsCreds.webHost,
 }), {
-  pattern: argv.pattern || 'src/*.html',
-  destpath: argv.dest || 'dist',
+  basePath: argv.basePath || path.join(__dirname, '..', 'src'),
+  pattern: argv.pattern || '**/*.html',
+  destpath: argv.dest || path.join(__dirname, '..', 'dist'),
   codepen: true,
 });
 

@@ -5,35 +5,51 @@ module.exports = resolve;
 var fs = require('fs');
 var path = require('path');
 
-function resolve (htmlPath, options, cb) {
-  var htmlname = path.resolve(htmlPath);
-  var dirname = path.dirname(htmlname);
-  var basename = path.basename(htmlname, path.extname(htmlname));
-  var jsname = path.resolve(dirname, basename + '.js');
-  var cssname = path.resolve(dirname, basename + '.css');
+function resolve (basePath, htmlPath, options, cb) {
+  var htmlPath = path.resolve(htmlPath);
+  var dirname = path.dirname(htmlPath);
+  var basename = path.basename(htmlPath, path.extname(htmlPath));
+  var jsPath = path.resolve(dirname, basename + '.js');
+  var cssPath = path.resolve(dirname, basename + '.css');
 
-  fs.access(cssname, fs.F_OK, function (err) {
+  var numUp = dirname.split('/').length - 1;
+  var toRoot = [];
+  for (var i = 0; i < numUp; i++) {
+    toRoot.push('..');
+  }
+  var pathToRoot = path.join.apply(null, toRoot);
+
+  fs.access(path.join(basePath, cssPath), fs.F_OK, function (err) {
     if (err) {
-      cssname = options.defaultCss
+      cssPath = options.defaultCss
     }
     doResolve();
   });
 
   function doResolve () {
     var data = {
-      htmlname: htmlname,
+      htmlPath: htmlPath,
+      basePath: basePath,
       dirname: dirname,
       basename: basename,
-      jsname: jsname,
-      cssname: cssname,
-      cssrel: path.basename(cssname, dirname),
-      jsrel: path.basename(jsname, dirname)
+      jsPath: jsPath,
+      cssPath: cssPath,
+      cssRel: path.basename(cssPath, dirname),
+      jsRel: path.basename(jsPath, dirname),
+      pathToRoot: pathToRoot,
+      staticRel: path.join(pathToRoot, 'static.js')
     };
 
+    if (!data.htmlPath.match(/\.html$/)) {
+      if (data.htmlPath.match(/\/$/)) {
+        data.htmlPath += 'index.html';
+      }
+    }
+
     var streams = {
-      html: fs.createReadStream(htmlname),
-      js: fs.createReadStream(jsname),
-      css: fs.createReadStream(cssname)
+      html: fs.createReadStream(path.join(data.basePath, htmlPath)),
+      js: fs.createReadStream(path.join(data.basePath, jsPath)),
+      css: fs.createReadStream(path.join(data.basePath, cssPath))
     };
 
     var completeCnt = 0;

@@ -13,7 +13,8 @@ module.exports = function (plot, name, x, y, opts) {
     width: 1,
     fill: 'none',
     duration: 0,
-    closed: false
+    closed: false,
+    opacity: 1,
   }, opts);
 
   if (isndarray(x)) {
@@ -61,12 +62,16 @@ module.exports = function (plot, name, x, y, opts) {
       update.style('stroke', options.color)
     }
 
-    if (options.width) {
+    if (options.width !== undefined) {
       update.style('stroke-width', options.width)
     }
 
     if (options.fill) {
       update.style('fill', options.fill)
+    }
+
+    if (options.opacity !== undefined) {
+      update.attr('opacity', options.opacity)
     }
   } else {
     update = plot.svg.append('path')
@@ -75,6 +80,7 @@ module.exports = function (plot, name, x, y, opts) {
       .style('stroke', options.color)
       .style('stroke-width', options.width)
       .style('fill', options.fill)
+      .attr('opacity', options.opacity)
       .attr('d', makeLine)
   }
 

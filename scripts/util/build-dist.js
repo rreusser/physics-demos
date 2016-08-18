@@ -4,14 +4,20 @@ var build = require('./build');
 var glob = require('glob');
 var path = require('path');
 var fs = require('fs');
+var mkdirp = require('mkdirp');
 
 module.exports = buildDist;
 
 function buildDist (config, cb) {
-  glob(config.pattern, function(err, files) {
+  console.log('config:', config);
+  mkdirp.sync(config.destpath);
+
+  console.log('config', config);
+  glob(path.join(config.basePath, config.pattern), function(err, files) {
+
     var i = 0;
 
-    function next () {
+    function nextFile () {
       (function (file) {
         console.log('Processing input: "[0;33;1m' + file + '"[0m');
 
@@ -23,23 +29,24 @@ function buildDist (config, cb) {
           opts.externalJS = config.externalJS;
         }
 
-        build(file, opts, function(err, stream, meta) {
+        var htmlRel = '/' + path.relative(config.basePath, file);
+        build(config.basePath, htmlRel, opts, function(err, stream, meta) {
           if (err) {
             console.error(err);
+            setImmediate(nextFile);
             return;
           }
 
           stream.on('end', function () {
             if (i < files.length) {
-              setImmediate(next);
+              setImmediate(nextFile);
             } else {
               cb && cb(null);
             }
           });
 
-          var pathname = path.resolve(process.cwd(), file);
-          var localpath = path.basename(pathname, meta.dirname);
-          var dest = path.resolve(config.destpath, localpath);
+          var dest = path.join(config.destpath, htmlRel);
+          mkdirp.sync(path.dirname(dest));
 
           console.log('Writing output: "[0;32;1m' + dest + '"[0m\n');
 
@@ -49,6 +56,6 @@ function buildDist (config, cb) {
       }(files[i++]));
     }
 
-    next();
+    nextFile();
   });
 }
