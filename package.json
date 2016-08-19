@@ -1,7 +1,7 @@
 {
   "name": "physics-demos",
   "version": "1.0.0",
-  "description": "An interactive implementation of the paper, &#34;Teaching Feynman&#39;s sum-over-path quantum theory&#34;",
+  "description": "A repo of physics demos",
   "main": "index.js",
   "author": {
     "name": "Ricky Reusser",
