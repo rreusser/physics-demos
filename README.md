@@ -11,7 +11,7 @@
 
 ## Introduction
 
-- [Fresnel Reflection in 1D](http://demos.rickyreusser.com/physics-demos/fresnel-reflection/)
+- [Fresnel Reflection in 1D](https://rreusser.github.io/physics-demos/fresnel-reflection/)
 
 ## License
 
