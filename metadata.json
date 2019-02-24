@@ -5,7 +5,7 @@
   "description": "Fresnel reflection in one dimension for either a pane or volume of glass",
   "ghOrgOrUser": "rreusser",
   "metaTags": {
-    "site": "http://rickyreusser.com",
+    "site": "https://rreusser.github.io",
     "title": "Physics demos",
     "description": "Fresnel reflection in one dimension for either a pane or volume of glass",
     "twitter:card": "summary_large_image",
@@ -14,7 +14,7 @@
     "twitter:description": "Fresnel reflection in one dimension for either a pane or volume of glass",
     "twitter:image": "http://demos.rickyreusser.com/physics-demos/fresnel-reflection/images/screenshot.jpg",
     "og:image": "http://demos.rickyreusser.com/physics-demos/fresnel-reflection/images/screenshot.jpg",
-    "og:site_name": "http://rickyreusser.com",
+    "og:site_name": "https://rreusser.github.io",
     "og:title": "Physics demos",
     "og:description": "Fresnel reflection in one dimension for either a pane or volume of glass"
   }
